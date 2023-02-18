@@ -17,8 +17,22 @@ async function checkBoycottStatus(domain) {
         "data": {
             "header": "Don't cross the picket line",
             "numUsers": "3.4m",
-            "site": "YouTube", 
-            "alternatives": ["Vimeo", "TikTok", "Twitch"]
+            "site": "YouTube",
+            "advocatesLink": "https://www.google.com", 
+            "alternatives": [
+                {
+                    name: "Vimeo",
+                    link: "https://www.vimeo.com"
+                }, 
+                {
+                    name: "TikTok",
+                    link: "https://www.tiktok.com"
+                }, 
+                {
+                    name: "Twitch",
+                    link: "https://www.twitch.com"
+                }
+            ]
         },
     }
 }
@@ -34,6 +48,9 @@ function showPicketLine(data) {
     document.body.append(hidePage); // hide the page
     document.body.append(picketLine);
     document.body.append(moreInfo); // add more info already but hidden
+
+    // Configure advocates link click
+    configureAdvocatesLinkClick(data.advocatesLink);
 
     picketVisible = true;
 }
@@ -104,7 +121,7 @@ function initMoreInfo(data) {
     const subText3 = document.createElement("p");
     subText3.setAttribute("class", "sub-text");
     subText3.innerHTML = `
-        Learn more about picket.online's advocates <mark class"link-advocates">here.</mark>
+        Learn more about picket.online's advocates <mark class="alternative-site" id="advocates-link">here.</mark>
     `  
 
     const subText4 = document.createElement("p");
@@ -120,19 +137,47 @@ function initMoreInfo(data) {
 
     // Append all to container
     container.append(proposalTitle);
-    container.append(subText1);
-    container.append(subText2);
+
+    const parentDiv1 = document.createElement("div");
+    parentDiv1.setAttribute("class", "parents");
+
+    parentDiv1.append(subText1);
+    parentDiv1.append(subText2);
+    container.append(parentDiv1);
 
     // Add alternatives
     container.append(alternatives);
 
-    container.append(subText3);
-    container.append(subText4);
+    const parentDiv2 = document.createElement("div");
+    parentDiv2.setAttribute("class", "parents");
+
+    parentDiv2.append(subText3);
+    parentDiv2.append(subText4);
+
+    container.append(parentDiv2);
+    const br = document.createElement("br");
+
+    container.append(br);
     container.append(backButton);
+
+    // configure backbutton clikc
+    onBackClick(backButton);
 
     return container;
 }
 
+function configureAdvocatesLinkClick(link) {
+    const advocatesLink = document.querySelector("#advocates-link");
+    if (advocatesLink) {
+        advocatesLink.onclick = () => {
+            openExternalLink(link);
+        }
+    }
+}
+
+function openExternalLink(link) {
+    window.open(link, '_blank');
+}
 
 function initAlternatives(alternatives) {
     const alternativesDiv = document.createElement("div");
@@ -142,7 +187,10 @@ function initAlternatives(alternatives) {
         const alt = document.createElement("p");
         alt.setAttribute("class", "alternative-site");
 
-        alt.innerHTML = alternatives[i];
+        alt.innerHTML = alternatives[i].name;
+        alt.onclick = () => {
+            openExternalLink(alternatives[i].link);
+        }
 
         alternativesDiv.append(alt);
     }
@@ -162,5 +210,16 @@ function onLearnMoreClick(element) {
             picketPage2.style.display = "flex";
         }
 
+    })
+}
+
+function onBackClick(element) {
+    element.addEventListener("click", () => {
+        const picketPage2 = document.getElementById("picket-page2");
+        if (picketPage2)  {
+            picketPage2.style.display = "none";
+            const picketPage1 = document.getElementById("picket-page1");
+            picketPage1.style.display = "flex";
+        }
     })
 }

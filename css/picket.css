@@ -63,10 +63,24 @@ body {
 
 }
 .alternative-site {
-
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 19px;
+    color: #000000;
+    background: none;
+    transition: 0.3s all ease;
+    margin: 0px;
+}
+.alternative-site:hover {
+    color: #9773FF;
+    cursor: pointer;
+    transition: 0.3s all ease;
 }
 .alternatives-div {
-
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 70%;
 }
 
 .proposal-count {
@@ -85,6 +99,17 @@ body {
     /* border: 1px solid black; */
     text-align: center;
     font-weight: 550;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 48px;
+}
+
+.proposal-title-more {
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: center;
+    font-weight: 400;
     font-size: 30px;
     font-family: Helvetica, sans-serif;
     color: rgba(0, 0, 0, 1);
@@ -126,4 +151,21 @@ body {
     cursor: pointer;
     transition: 0.3s all ease;
     color: #9773FF;
+}
+.parents {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70%;
+}
+.sub-text {
+    color: #000000;
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    line-height: 30px;
+    font-weight: lighter;
+    font-size: 20px;
+    font-style: normal;
+    margin: 0px;
 }
