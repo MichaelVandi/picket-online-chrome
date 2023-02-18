@@ -4,11 +4,28 @@ let picketVisible = false;
 window.onload = async function() {
     // Should you init a picket line here?
     // Make an API call, if true then init
-    const checkBoycott = await checkBoycottStatus("test");
-    
-    if (checkBoycott.boycott) {
-        showPicketLine(checkBoycott.data);
-    }
+    const currentHostname = window.location.hostname;
+
+    const checkBoycott = await checkBoycottStatus(currentHostname);
+
+    // get user crossed sites. If user hasn't crossed
+    chrome.storage.sync.get("crossedPickets", async function(data) {
+        if (data.crossedPickets) {
+            // exists
+            const crossedPickets = data.crossedPickets;
+            if (!crossedPickets.includes(currentHostname)) {
+                // User has not crossed
+                if (checkBoycott.boycott) {
+                    showPicketLine(checkBoycott.data);
+                }
+            }
+            
+        } else {
+            if (checkBoycott.boycott) {
+                showPicketLine(checkBoycott.data);
+            }
+        }
+    });
 }
 
 async function checkBoycottStatus(domain) {
