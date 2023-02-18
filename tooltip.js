@@ -18,6 +18,7 @@ async function checkBoycottStatus(domain) {
             "header": "Don't cross the picket line",
             "numUsers": "3.4m",
             "site": "YouTube", 
+            "alternatives": ["Vimeo", "TikTok", "Twitch"]
         },
     }
 }
@@ -75,7 +76,69 @@ function initPicketLineUI(data) {
     return container;
 }
 
-function initLearnMore(data) {
-    
+function initMoreInfo(data) {
+    // Create UI elements and configure
+    const container = document.createElement("div");
+    container.setAttribute("class", "picket-container");
+
+    const proposalTitle = document.createElement("p");
+    proposalTitle.setAttribute("class", "proposal-title-more");
+    proposalTitle.innerHTML = "We are currently in negotiations with " + data.site;
+
+    const subText1 = document.createElement("p");
+    subText1.setAttribute("class", "sub-text");
+    subText1.innerHTML = "Our lawyers are in discussions over unfair data privacy terms for users in North America";
+
+    const subText2 = document.createElement("p");
+    subText2.setAttribute("class", "sub-text");
+    subText2.innerHTML = "In the meantime, explore these alternatives:";
+
+    const subText3 = document.createElement("p");
+    subText3.setAttribute("class", "sub-text");
+    subText3.innerHTML = `
+        Learn more about picket.online's advocates <mark class"link-advocates">here.</mark>
+    `  
+
+    const subText4 = document.createElement("p");
+    subText4.setAttribute("class", "sub-text");
+    subText4.innerHTML = "We can't do it without you."
+
+    const backButton = document.createElement("p");
+    backButton.setAttribute("class", "cross-picket-button");
+    backButton.innerHTML = "Back.";
+
+    // Build alternatives
+    const alternatives = initAlternatives(data.alternatives);
+
+    // Append all to container
+    container.append(proposalTitle);
+    container.append(subText1);
+    container.append(subText2);
+
+    // Add alternatives
+    container.append(alternatives);
+
+    container.append(subText3);
+    container.append(subText4);
+    container.append(backButton);
+
+    return container;
+}
+
+
+function initAlternatives(alternatives) {
+    const alternativesDiv = document.createElement("div");
+    alternativesDiv.setAttribute("class", "alternatives-div");
+
+    for (let i = 0; i < alternatives.length; i++) {
+        const alt = document.createElement("p");
+        alt.setAttribute("class", "alternative-site");
+
+        alt.innerHTML = alternatives[i];
+
+        alternativesDiv.append(alt);
+    }
+
+    return alternativesDiv;
 }
 
