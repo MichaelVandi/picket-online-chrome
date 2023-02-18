@@ -26,12 +26,15 @@ async function checkBoycottStatus(domain) {
 function showPicketLine(data) {
     if (picketVisible) return; // Don't show picket if it is already visible
     const picketLine = initPicketLineUI(data);
+    const moreInfo = initMoreInfo(data);
     // Get body and append
     const hidePage = document.createElement("div");
     hidePage.setAttribute("class", "overlay");
 
     document.body.append(hidePage); // hide the page
     document.body.append(picketLine);
+    document.body.append(moreInfo); // add more info already but hidden
+
     picketVisible = true;
 }
 
@@ -39,6 +42,7 @@ function initPicketLineUI(data) {
     // Create UI elements and configure
     const container = document.createElement("div");
     container.setAttribute("class", "picket-container");
+    container.setAttribute("id", "picket-page1");
     
     const heading = document.createElement("p");
     heading.setAttribute("class", "picket-heading");
@@ -73,6 +77,9 @@ function initPicketLineUI(data) {
     container.append(learnMoreButton);
     container.append(skipButton);
 
+    // Add click functionality for learn more button
+    onLearnMoreClick(learnMoreButton);
+
     return container;
 }
 
@@ -80,6 +87,7 @@ function initMoreInfo(data) {
     // Create UI elements and configure
     const container = document.createElement("div");
     container.setAttribute("class", "picket-container");
+    container.setAttribute("id", "picket-page2");
 
     const proposalTitle = document.createElement("p");
     proposalTitle.setAttribute("class", "proposal-title-more");
@@ -142,3 +150,17 @@ function initAlternatives(alternatives) {
     return alternativesDiv;
 }
 
+
+function onLearnMoreClick(element) {
+    element.addEventListener("click", () => {
+        // Hide page 1, Show page 2
+        const picketPage1 = document.getElementById("picket-page1");
+        if (picketPage1) {
+            // Hide
+            picketPage1.style.display = "none";
+            const picketPage2 = document.getElementById("picket-page2");
+            picketPage2.style.display = "flex";
+        }
+
+    })
+}
