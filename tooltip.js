@@ -26,7 +26,10 @@ function showPicketLine(data) {
     if (picketVisible) return; // Don't show picket if it is already visible
     const picketLine = initPicketLineUI(data);
     // Get body and append
-    console.log("showing picket line")
+    const hidePage = document.createElement("div");
+    hidePage.setAttribute("class", "overlay");
+
+    document.body.append(hidePage); // hide the page
     document.body.append(picketLine);
     picketVisible = true;
 }
