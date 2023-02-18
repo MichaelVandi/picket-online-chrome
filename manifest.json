@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "Picketing.Online",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg/5YU+6UpSmK0FzSvGu3SJo/GW/PNEmwRUQCAS/WusY6HoNxwvLZlZlPGWpqzuUsbwl2XVKxFlLdtiLIws37VsVk8sBPvJD5Ul8zKHZhMKWdvpJ8bEc3tQCySLRdqjOO0JBDIxD3KyK9tLGOG2bDomLvdSSw9GHJuD6fb9JSUW65tIeB9wqQnMSaGnQzBRSqQfn4Q6dcQANGr+E9TUuhyUtz+cAvcKUQ67ChQFdglScus6uQOGoSBfl4JZGKEjFzNUf911SkImrFkQhQJG8qYW13sCtzbUse9WeXXYm28awNkPTNZFe0uvVsq51TALsnC7NzCDm2mJX+PTdowug9mwIDAQAB",
+    "version": "0.0.0.1",
+    "description": "The first ever union of users",
+    "permissions": ["activeTab", "storage"],
+    "action": {
+        "default_icon": "assets/icon.png",
+        "default_popup": "login.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [ "css/picket.css", "css/material-icons.css"],
+            "js": [
+                "cdn-scripts/jquery.js",
+                "cdn-scripts/progress-bar.js",
+                "cdn-scripts/gmail.js",
+                "cdn-scripts/confetti.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "cdn-scripts/popper-min.js",
+                "cdn-scripts/tippy.js",
+                "tooltip.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["settings.html", "login.html", "main.html"],
+          "extension_ids": ["hahadfphfimifgfhfcpkjeimhlghfdbl"]
+        }
+    ],
+    "options_ui": {
+        "page": "settings.html",
+        "open_in_tab": false
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}

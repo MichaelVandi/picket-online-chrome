@@ -1,0 +1,97 @@
+body {
+    background-color: red;
+}
+
+.picket-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 999999;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.picket-heading {
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: center;
+    font-weight: 550;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 48px;
+}
+
+.picket-cover {
+    width: 90%;
+    height: auto;
+}
+
+.proposal-count {
+    width: 100%;
+    color: #5E5E5E;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    line-height: 48px;
+}
+
+.proposal-title {
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: center;
+    font-weight: 550;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    line-height: 48px;
+}
+
+.primary-button {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 1);
+    background: #9773FF;
+    font-family: Helvetica, sans-serif;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.cross-picket-button {
+    text-decoration: underline;
+    font-family: Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    font-size: 13px;
+    line-height: 24px;
+    width: fit-content;
+    text-align: center;
+    transition: 0.3s all ease;
+}
+
+.cross-picket-button:hover {
+    cursor: pointer;
+    transition: 0.3s all ease;
+    color: #9773FF;
+}
