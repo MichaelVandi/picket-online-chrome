@@ -6,16 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/icon.png" />
+  <link rel="icon" href="assets/icon.png"/>
   <!-- Main CSS -->
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <script type="text/javascript" src="invite-code-init.js"></script>
-
-  <script src="cdn-scripts/firebase-app-7-19-1.js"></script>
-  <script src="cdn-scripts/firebase-auth-7-19-1.js"></script>
-  <script src="cdn-scripts/firebaseui-3-5-2.js"></script>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -38,49 +31,34 @@
                 <div>
                     <p class="title-text" id="settings-header">Propose a boycott</p>
 
-                    <div class="horizontal-flex settings-item">
-                        <p class="settings-title-horizontal">Default email writing tone:</p>
+                    <div class="vertical-flex">
 
-                        <div>
-                            <select name="tone" id="selectTone"></select>
-                        </div>
+                        <label for="sitename">Site Name:</label>
+                        <input type="text" id="sitename" name="sitename" maxlength="50"
+                            placeholder="example.com">
                         
                     </div>
 
-                    <div class="horizontal-flex settings-item">
-                        <p class="settings-title-horizontal">Show Confetti:</p>
-
-                        <div>
-                            <select class="settings-background" name="confetti" id="selectConfetti"></select>
-                        </div>
-                        
+                    <br/>
+                    <div class="vertical-flex">
+                        <label for="reason">Reason:</label>
+                        <textarea id="reason" name="reason" rows="4" maxlength="250"
+                            placeholder="Why do you think this site should be boycotted?"></textarea>
                     </div>
 
-                    <div class="settings-item">
-                        <div class="horizontal-flex center-opposite title-value-div">
-                            <p class="settings-title-horizontal">Response length:</p>
-                            <p id="response-length-value" class="slider-value">Medium</p>
-                        </div>
-                        
-                        <div class="advanced-slider-container">
-                            <input id="response-length-slider" type="range" min="10" max="100" value="50" class="advanced-slider slider-margin">
-                            
-                        </div>
-        
+                    <br/>
+                    <br/>
+
+                    
+                    <div class="full-parent-width">
+                        <button id="get-access-button" class="login-button">
+                            Submit
+                        </button>
                     </div>
+
+                    
         
-                    <div class="settings-item">
-                        <div class="horizontal-flex center-opposite">
-                            <p class="settings-title-horizontal">Signature:</p>
-        
-                            <div class="advanced-toggle-container">
-                                <label class="switch">
-                                    <input id="signature-setting" type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    
         
 
                 </div>
@@ -93,17 +71,6 @@
         </div>
     </div>
 
-    <div class="full-parent-width footer">
-        <div class="vertical-flex footer-partition">
-            <p class="footer-text underline-text" id="sign-out-btn">Sign out</p>
-            <p class="footer-text underline-text" id="privacy-policy-link">Privacy Policy</p>
-        </div>
-        <div class="vertical-flex footer-partition">
-            <p class="footer-text">For Feedback?
-                <mark class="underline-text" id="contact-me-link">Contact Us</mark></p> 
-            <p class="footer-text underline-text" id="terms-of-use-link">Terms of Service</p>
-        </div>
-    </div>
 
 
   <script src="settings.js"></script>

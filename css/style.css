@@ -525,6 +525,10 @@ input[type="number"]:nth-child(n+4) {
     padding-top: 20px;
     padding-bottom: 70px;
 }
+.vertical-flex {
+    display: flex;
+    flex-direction: column;
+}
 .settings-title {
     margin: 0px;
     margin-bottom: 7px;

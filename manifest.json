@@ -7,7 +7,7 @@
     "permissions": ["activeTab", "storage"],
     "action": {
         "default_icon": "assets/icon.png",
-        "default_popup": "login.html"
+        "default_popup": "settings.html"
     },
     "content_scripts": [
         {
