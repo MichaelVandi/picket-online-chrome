@@ -75,3 +75,7 @@ function initPicketLineUI(data) {
     return container;
 }
 
+function initLearnMore(data) {
+    
+}
+

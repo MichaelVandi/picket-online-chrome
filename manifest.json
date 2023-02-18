@@ -17,9 +17,7 @@
             "css": [ "css/picket.css", "css/material-icons.css"],
             "js": [
                 "cdn-scripts/jquery.js",
-                "cdn-scripts/progress-bar.js",
-                "cdn-scripts/gmail.js",
-                "cdn-scripts/confetti.js"
+                "cdn-scripts/progress-bar.js"
             ],
             "run_at": "document_start"
         },
