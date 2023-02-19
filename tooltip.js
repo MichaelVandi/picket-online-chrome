@@ -8,24 +8,9 @@ window.onload = async function() {
 
     const checkBoycott = await checkBoycottStatus(currentHostname);
 
-    // get user crossed sites. If user hasn't crossed
-    chrome.storage.sync.get("crossedPickets", async function(data) {
-        if (data.crossedPickets) {
-            // exists
-            const crossedPickets = data.crossedPickets;
-            if (!crossedPickets.includes(currentHostname)) {
-                // User has not crossed
-                if (checkBoycott.boycott) {
-                    showPicketLine(checkBoycott.data);
-                }
-            }
-            
-        } else {
-            if (checkBoycott.boycott) {
-                showPicketLine(checkBoycott.data);
-            }
-        }
-    });
+    if (checkBoycott.boycott) {
+        showPicketLine(checkBoycott.data);
+    }
 }
 
 async function checkBoycottStatus(domain) {
@@ -61,6 +46,7 @@ function showPicketLine(data) {
     // Get body and append
     const hidePage = document.createElement("div");
     hidePage.setAttribute("class", "overlay");
+    hidePage.setAttribute("id", "hidePage");
 
     document.body.append(hidePage); // hide the page
     document.body.append(picketLine);
@@ -126,23 +112,9 @@ function onCrossPicketLineClick(element) {
 }
 
 function crossPicketLine() {
-    const currentHostname = window.location.hostname;
-    chrome.storage.sync.get("crossedPickets", async function(data) {
-        if (data.crossedPickets) {
-            // exists
-            const crossedPickets = data.crossedPickets;
-            crossedPickets.push(currentHostname);
-
-            // update crossed pickets
-            chrome.storage.sync.set({crossedPickets: crossedPickets});
-            
-        } else {
-            const crossedPickets = [];
-            crossedPickets.push(currentHostname);
-            // update crossed pickets
-            chrome.storage.sync.set({crossedPickets: crossedPickets});
-        }
-    });
+    hideElement(document.getElementById("picket-page1"));
+    hideElement(document.getElementById("picket-page2"));
+    hideElement(document.getElementById("hidePage"));
 
 }
 
@@ -257,6 +229,10 @@ function onLearnMoreClick(element) {
         }
 
     })
+}
+
+function hideElement(element) {
+    if (element) element.style.display = "none";
 }
 
 function onBackClick(element) {
