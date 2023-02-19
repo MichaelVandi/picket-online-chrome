@@ -111,10 +111,39 @@ function initPicketLineUI(data) {
     container.append(learnMoreButton);
     container.append(skipButton);
 
-    // Add click functionality for learn more button
+    // Add click functionality for learn more button, cross picket
     onLearnMoreClick(learnMoreButton);
+    onCrossPicketLineClick(skipButton);
 
     return container;
+}
+
+function onCrossPicketLineClick(element) {
+    element.addEventListener("click", () => {
+        // Cross this picket line
+        crossPicketLine();
+    })
+}
+
+function crossPicketLine() {
+    const currentHostname = window.location.hostname;
+    chrome.storage.sync.get("crossedPickets", async function(data) {
+        if (data.crossedPickets) {
+            // exists
+            const crossedPickets = data.crossedPickets;
+            crossedPickets.push(currentHostname);
+
+            // update crossed pickets
+            chrome.storage.sync.set({crossedPickets: crossedPickets});
+            
+        } else {
+            const crossedPickets = [];
+            crossedPickets.push(currentHostname);
+            // update crossed pickets
+            chrome.storage.sync.set({crossedPickets: crossedPickets});
+        }
+    });
+
 }
 
 function initMoreInfo(data) {
