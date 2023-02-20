@@ -3,6 +3,7 @@ body {
 }
 
 .overlay {
+    /* outline: 1px solid green; */
     position: fixed;
     z-index: 9999;
     width: 100vw;
@@ -15,8 +16,9 @@ body {
 }
 
 .picket-container {
+    /* outline: 1px solid green; */
     flex-direction: column;
-    width: 80vw;
+    width: min(80vw,800px);
     height: fit-content;
     justify-content: center;
     align-items: center;
@@ -27,35 +29,38 @@ body {
     bottom: 0;
     top: 0;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: rgba(255, 255, 255, 1);
 }
 
 .picket-heading {
+    /* outline: 1px solid green; */
+    margin-bottom: 30px;
     width: 100%;
-    /* border: 1px solid black; */
     text-align: center;
     font-weight: 550;
     font-size: 30px;
     font-family: Helvetica, sans-serif;
     color: rgba(0, 0, 0, 1);
-    line-height: 48px;
+    /* line-height: 48px; */
 }
 
 .picket-cover {
-    /* width: 80%;
-    height: auto; */
+    /* outline: 1px solid green; */
+    margin-bottom: 10px;
     height: 200px;
     width: auto;
 }
 
 #picket-page1 {
+    /* outline: 1px solid green; */
     display: flex;
 }
 
 #picket-page2 {
+    /* outline: 1px solid green; */
     display: none;
 }
 
@@ -63,6 +68,7 @@ body {
 
 }
 .alternative-site {
+    /* outline: 1px solid green; */
     text-decoration: underline;
     cursor: pointer;
     font-weight: bold;
@@ -78,34 +84,40 @@ body {
     transition: 0.3s all ease;
 }
 .alternatives-div {
+    /* outline: 1px solid green; */
     padding-top: 20px;
     padding-bottom: 20px;
     width: 70%;
 }
 
 .proposal-count {
+    /* outline: 1px solid green; */
+    margin-bottom: 30px;
+    font-size: 30px;
     width: 100%;
     color: #5E5E5E;
-    font-size: 20px;
     font-family: Helvetica, sans-serif;
     font-weight: 400;
     font-style: italic;
     text-align: center;
-    line-height: 48px;
+    /* line-height: 48px; */
 }
 
 .proposal-title {
+    /* outline: 1px solid green; */
+    margin-bottom: 30px;
     width: 100%;
-    /* border: 1px solid black; */
     text-align: center;
     font-weight: 550;
     font-size: 30px;
     font-family: Helvetica, sans-serif;
     color: rgba(0, 0, 0, 1);
-    line-height: 48px;
+    /* line-height: 48px; */
 }
 
 .proposal-title-more {
+    /* outline: 1px solid green; */
+    margin-bottom: 10px;
     width: 100%;
     /* border: 1px solid black; */
     text-align: center;
@@ -113,10 +125,12 @@ body {
     font-size: 30px;
     font-family: Helvetica, sans-serif;
     color: rgba(0, 0, 0, 1);
-    line-height: 48px;
+    /* line-height: 48px; */
 }
 
 .primary-button {
+    /* outline: 1px solid green; */
+    margin-bottom: 30px;
     width: fit-content;
     display: flex;
     flex-direction: row;
@@ -127,6 +141,7 @@ body {
     font-family: Helvetica, sans-serif;
     border-radius: 20px;
     padding: 10px 20px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -137,11 +152,11 @@ body {
 }
 
 .cross-picket-button {
+    /* outline: 1px solid green; */
     text-decoration: underline;
     font-family: Helvetica, sans-serif;
     color: rgba(0, 0, 0, 1);
     font-size: 13px;
-    line-height: 24px;
     width: fit-content;
     text-align: center;
     transition: 0.3s all ease;
@@ -153,6 +168,7 @@ body {
     color: #9773FF;
 }
 .parents {
+    /* outline: 1px solid green; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -160,6 +176,8 @@ body {
     width: 70%;
 }
 .sub-text {
+    /* outline: 1px solid green; */
+    margin-bottom: 0px;
     color: #000000;
     font-family: Helvetica, sans-serif;
     text-align: left;
@@ -167,5 +185,4 @@ body {
     font-weight: lighter;
     font-size: 20px;
     font-style: normal;
-    margin: 0px;
 }

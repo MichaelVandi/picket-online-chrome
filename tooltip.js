@@ -17,7 +17,7 @@ async function checkBoycottStatus(domain) {
     return {
         "boycott": true,
         "data": {
-            "header": "Don't cross the picket line",
+            "header": "Don't cross the picket line.",
             "numUsers": "3.4m",
             "site": "YouTube",
             "advocatesLink": "https://www.google.com", 
@@ -75,11 +75,11 @@ function initPicketLineUI(data) {
 
     const proposalCount = document.createElement("p");
     proposalCount.setAttribute("class", "proposal-count");
-    proposalCount.innerHTML = data.numUsers + " users currently boycotting";
+    proposalCount.innerHTML = data.numUsers + " users boycotting";
 
     const proposalTitle = document.createElement("p");
     proposalTitle.setAttribute("class", "proposal-title");
-    proposalTitle.innerHTML = "We are currently in negotiations with " + data.site;
+    proposalTitle.innerHTML = "We are currently in negotiations with " + data.site + ".";
 
     const learnMoreButton = document.createElement("div");
     learnMoreButton.setAttribute("class", "primary-button");
